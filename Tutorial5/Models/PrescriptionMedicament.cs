@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Tutorial5.Models;
 
-[PrimaryKey(nameof(Medicament), nameof(Prescription))]
 public class PrescriptionMedicament
 {
     [Key]
