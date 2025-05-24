@@ -6,19 +6,18 @@ namespace Tutorial5.Models;
 
 public class PrescriptionMedicament
 {
-    [Key]
+    [Key, Column(Order = 0)]
     [ForeignKey(nameof(Medicament))]
     public int IdMedicament { get; set; }
-    
-    [Key]
+    public virtual Medicament Medicament { get; set; }
+
+    [Key, Column(Order = 1)]
     [ForeignKey(nameof(Prescription))]
     public int IdPrescription { get; set; }
-    
-    public int Dose { get; set; }
-    
-    [MaxLength(100)]
-    public string Details { get; set; }
+    public virtual Prescription Prescription { get; set; }
 
-    public Medicament Medicament { get; set; }
-    public Prescription Prescription { get; set; }
+    public int? Dose { get; set; }
+    
+    [Required, MaxLength(100)]
+    public string Details { get; set; }
 }
