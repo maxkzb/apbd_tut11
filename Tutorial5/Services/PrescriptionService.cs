@@ -38,7 +38,7 @@ public class PrescriptionService : IPrescriptionService
             .FirstOrDefaultAsync(p =>
                 p.FirstName == request.Patient.FirstName &&
                 p.LastName == request.Patient.LastName &&
-                p.BirthDate == request.Patient.BirthDate);
+                p.BirthDate == request.Patient.Birthdate);
 
         if (patient == null)
         {
@@ -46,7 +46,7 @@ public class PrescriptionService : IPrescriptionService
             {
                 FirstName = request.Patient.FirstName,
                 LastName = request.Patient.LastName,
-                BirthDate = request.Patient.BirthDate
+                BirthDate = request.Patient.Birthdate
             };
             _context.Patients.Add(patient);
             await _context.SaveChangesAsync();
@@ -127,9 +127,7 @@ public class PatientService : IPatientService
                     Medicaments = pr.PrescriptionMedicaments.Select(pm => new PrescriptionMedicamentDTO
                     {
                         IdMedicament = pm.IdMedicament,
-                        Name = pm.Medicament.Name,
-                        Description = pm.Medicament.Description,
-                        Type = pm.Medicament.Type,
+                        IdPrescription = pm.IdPrescription,
                         Dose = pm.Dose,
                         Details = pm.Details
                     }).ToList()
