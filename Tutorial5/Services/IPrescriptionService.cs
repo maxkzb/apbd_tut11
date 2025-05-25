@@ -4,6 +4,5 @@ namespace Tutorial5.Services;
 
 public interface IPrescriptionService
 {
-    Task AddPrescriptionAsync(CreatePrescriptionDTO dto);
-    Task<PatientResponseDTO> GetPatientInfoAsync(int patientId);
+    Task<(bool Success, string Message, int? IdPrescription)> AddPrescriptionAsync(AddPrescriptionRequestDTO request);
 }
