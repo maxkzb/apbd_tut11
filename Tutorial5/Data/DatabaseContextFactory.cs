@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Tutorial5.Data;
 
 namespace Tutorial5.Data;
 
